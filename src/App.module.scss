@@ -26,8 +26,14 @@ code {
 }
 
 .AppContainer {
-    width: 80%;
+    width: 60%;
     margin: 0px auto;
+    @include breakpoint(xs) {
+        width: 90%;
+    }
+    @include breakpoint(sm) {
+        width: 80%;
+    }
 }
 .Heading {
     color: #222;

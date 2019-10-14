@@ -1,0 +1,15 @@
+@import "../../variables.scss";
+.metadata {
+    margin-top: 10%;
+}
+.question {
+    color: $textColor_300;
+    @include font-bold(24px);
+}
+.answer {
+    color: $textColor_200;
+    @include font-normal(16px);
+    margin-top: 8px;
+    line-height: 1.54;
+    margin-bottom: 24px;
+}

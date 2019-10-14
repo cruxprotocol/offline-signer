@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./App.module.scss";
-import Signer from "./components/Signer";
+import Signer from "./components/Signer/Signer";
+import Metadata from "./components/Metadata/Metadata";
 import GithubCorner from "react-github-corner";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                     Sign a message by your bitcoin private key
                 </div>
                 <Signer />
+                <Metadata />
             </div>
         </div>
     );

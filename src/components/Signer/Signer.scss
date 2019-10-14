@@ -1,4 +1,4 @@
-@import "../variables.scss";
+@import "../../variables.scss";
 @import "@material/textfield/mdc-text-field";
 @import "@material/select/helper-text/mdc-select-helper-text";
 @import "@material/button/mdc-button";
@@ -10,11 +10,11 @@
     align-items: center;
     margin-top: 5%;
     &__input {
-        width: 80%;
+        width: 100%;
         margin-top: 24px;
     }
     &__footer {
-        width: 80%;
+        width: 100%;
         display: flex;
         justify-content: flex-end;
         margin-top: 16px;
@@ -26,7 +26,7 @@
         color: $textColor_200;
     }
     .signature {
-        width: 80%;
+        width: 100%;
         padding: 16px;
         background-color: #f3f5f8;
         border-radius: 8px;

@@ -2,25 +2,64 @@ import React, { Component } from "react";
 import "./Signer.scss";
 import { MDCTextField } from "@material/textfield";
 import { MDCSelectHelperText } from "@material/select/helper-text";
+import { MDCRipple } from "@material/ripple";
+import { TokenSigner } from "jsontokens";
 
 class Signer extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            privateKey: "",
+            message: "",
+            signature: ""
+        };
     }
     componentDidMount() {
         const inputs = document.querySelectorAll(".mdc-text-field");
-
         inputs.forEach(input => {
             new MDCTextField(input);
         });
 
         const helperText = document.querySelectorAll(".mdc-select-helper-text");
-        console.log(helperText);
         helperText.forEach(text => {
             new MDCSelectHelperText(text);
         });
+
+        const buttons = document.querySelectorAll(".mdc-button");
+        buttons.forEach(button => {
+            new MDCRipple(button);
+        });
     }
+
+    handlePkInput = event => {
+        this.setState({ privateKey: event.target.value });
+    };
+
+    handleMessageInput = event => {
+        this.setState({ message: event.target.value });
+    };
+
+    handleSign = () => {
+        let signature = new TokenSigner("ES256K", this.state.privateKey).sign(
+            this.state.message
+        );
+        this.setState({ signature: signature }, () => {
+            window.scroll({
+                top: 100,
+                left: 0,
+                behavior: "smooth"
+            });
+        });
+    };
+
+    handleCopy = str => {
+        const el = document.createElement("textarea");
+        el.value = str;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand("copy");
+        document.body.removeChild(el);
+    };
 
     render() {
         return (
@@ -30,6 +69,8 @@ class Signer extends Component {
                         <input
                             className="mdc-text-field__input"
                             id="text-field-hero-input"
+                            onChange={this.handlePkInput}
+                            value={this.state.privateKey}
                         />
                         <div className="mdc-notched-outline">
                             <div className="mdc-notched-outline__leading"></div>
@@ -48,6 +89,57 @@ class Signer extends Component {
                         Please sign the message with your private key
                     </div>
                 </div>
+
+                <div className="signer__input">
+                    <div className="mdc-text-field mdc-text-field--textarea">
+                        <textarea
+                            id="message"
+                            className="mdc-text-field__input"
+                            rows="8"
+                            cols="40"
+                            onChange={this.handleMessageInput}
+                            value={this.state.message}
+                        ></textarea>
+                        <div className="mdc-notched-outline">
+                            <div className="mdc-notched-outline__leading"></div>
+                            <div className="mdc-notched-outline__notch">
+                                <label
+                                    htmlFor="message"
+                                    className="mdc-floating-label"
+                                >
+                                    Message To Sign
+                                </label>
+                            </div>
+                            <div className="mdc-notched-outline__trailing"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="signer__footer">
+                    <button
+                        className="mdc-button mdc-button--raised"
+                        type="button"
+                        onClick={this.handleSign}
+                    >
+                        Sign Message
+                    </button>
+                </div>
+                {this.state.signature && (
+                    <div className="signature">
+                        <div>{this.state.signature}</div>
+                        <div>
+                            <button
+                                className="mdc-button"
+                                type="button"
+                                onClick={() =>
+                                    this.handleCopy(this.state.signature)
+                                }
+                            >
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                )}
             </form>
         );
     }

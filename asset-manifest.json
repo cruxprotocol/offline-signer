@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "../cruxprotocol/static/css/main.c8f9598f.chunk.css",
-    "main.js": "../cruxprotocol/static/js/main.d70ccb69.chunk.js",
-    "main.js.map": "../cruxprotocol/static/js/main.d70ccb69.chunk.js.map",
-    "runtime-main.js": "../cruxprotocol/static/js/runtime-main.38cc6b02.js",
-    "runtime-main.js.map": "../cruxprotocol/static/js/runtime-main.38cc6b02.js.map",
-    "static/js/2.c1d4a07b.chunk.js": "../cruxprotocol/static/js/2.c1d4a07b.chunk.js",
-    "static/js/2.c1d4a07b.chunk.js.map": "../cruxprotocol/static/js/2.c1d4a07b.chunk.js.map",
-    "index.html": "../cruxprotocol/index.html",
-    "precache-manifest.b4b521238d94a75cb4673caf29640e41.js": "../cruxprotocol/precache-manifest.b4b521238d94a75cb4673caf29640e41.js",
-    "service-worker.js": "../cruxprotocol/service-worker.js",
-    "static/css/main.c8f9598f.chunk.css.map": "../cruxprotocol/static/css/main.c8f9598f.chunk.css.map"
+    "main.css": "../static/css/main.c8f9598f.chunk.css",
+    "main.js": "../static/js/main.d70ccb69.chunk.js",
+    "main.js.map": "../static/js/main.d70ccb69.chunk.js.map",
+    "runtime-main.js": "../static/js/runtime-main.b664cb0f.js",
+    "runtime-main.js.map": "../static/js/runtime-main.b664cb0f.js.map",
+    "static/js/2.c1d4a07b.chunk.js": "../static/js/2.c1d4a07b.chunk.js",
+    "static/js/2.c1d4a07b.chunk.js.map": "../static/js/2.c1d4a07b.chunk.js.map",
+    "index.html": "../index.html",
+    "precache-manifest.317ce7ca108772cf3e6062ce3d8dbe75.js": "../precache-manifest.317ce7ca108772cf3e6062ce3d8dbe75.js",
+    "service-worker.js": "../service-worker.js",
+    "static/css/main.c8f9598f.chunk.css.map": "../static/css/main.c8f9598f.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.38cc6b02.js",
+    "static/js/runtime-main.b664cb0f.js",
     "static/js/2.c1d4a07b.chunk.js",
     "static/css/main.c8f9598f.chunk.css",
     "static/js/main.d70ccb69.chunk.js"

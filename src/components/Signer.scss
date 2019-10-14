@@ -1,0 +1,19 @@
+@import "../variables.scss";
+@import "@material/textfield/mdc-text-field";
+@import "@material/select/helper-text/mdc-select-helper-text";
+
+.signer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    &__input {
+        width: 80%;
+    }
+    .mdc-text-field {
+        width: 100%;
+    }
+    .mdc-select-helper-text--persistent {
+        color: $textColor_200;
+    }
+}

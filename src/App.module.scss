@@ -1,3 +1,4 @@
+@import "./variables";
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
     box-sizing: border-box;
@@ -22,4 +23,22 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
+}
+
+.AppContainer {
+    width: 80%;
+    margin: 0px auto;
+}
+.Heading {
+    color: #222;
+    @include font-bold(32px);
+    text-align: center;
+    margin: 32px 16px;
+    margin-bottom: 8px;
+    margin-top: 5%;
+}
+.SubHeading {
+    color: $textColor_300;
+    @include font-normal(20px);
+    text-align: center;
 }

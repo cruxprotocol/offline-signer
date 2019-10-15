@@ -1,6 +1,7 @@
 $textColor_100: #ffffff;
 $textColor_200: #636e72;
 $textColor_300: #333648;
+$brand: rgb(84, 51, 255);
 @mixin breakpoint($class) {
     @if $class == xs {
         @media (max-width: 576px) {

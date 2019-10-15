@@ -4,6 +4,7 @@ import { MDCTextField } from "@material/textfield";
 import { MDCSelectHelperText } from "@material/select/helper-text";
 import { MDCRipple } from "@material/ripple";
 import { TokenSigner } from "jsontokens";
+var CoinKey = require('coinkey');
 
 class Signer extends Component {
     constructor(props) {
@@ -11,7 +12,8 @@ class Signer extends Component {
         this.state = {
             privateKey: "",
             message: "",
-            signature: ""
+            signature: "",
+            privateKeyHex: ""
         };
     }
     componentDidMount() {
@@ -33,6 +35,16 @@ class Signer extends Component {
 
     handlePkInput = event => {
         this.setState({ privateKey: event.target.value });
+
+        let key = String(event.target.value);
+        if (key.length === 64){
+            this.setState({ privateKeyHex: key });
+        }
+        else{
+            let hexToWif = CoinKey.fromWif(key)
+            let wifkey = hexToWif.privateKey.toString('hex')
+            this.setState({ privateKeyHex: wifkey });
+        }
     };
 
     handleMessageInput = event => {
@@ -40,7 +52,7 @@ class Signer extends Component {
     };
 
     handleSign = () => {
-        let signature = new TokenSigner("ES256K", this.state.privateKey).sign(
+        let signature = new TokenSigner("ES256K", this.state.privateKeyHex).sign(
             this.state.message
         );
         this.setState({ signature: signature }, () => {

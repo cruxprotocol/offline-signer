@@ -24,6 +24,7 @@ function Metadata() {
                 <a
                     href="https://github.com/cruxprotocol/offline-signer/issues"
                     target="_blank"
+                    rel="noopener noreferrer"
                 >
                     Issues section
                 </a>

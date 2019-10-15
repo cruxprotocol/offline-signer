@@ -41,7 +41,7 @@ class Signer extends Component {
 
     handleSign = () => {
         let signature = new TokenSigner("ES256K", this.state.privateKey).sign(
-            this.state.message
+            JSON.parse(this.state.message)
         );
         this.setState({ signature: signature }, () => {
             window.scroll({

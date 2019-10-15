@@ -17,7 +17,7 @@ function App() {
             <div className={styles.AppContainer}>
                 <div className={styles.Heading}>Message Signer</div>
                 <div className={styles.SubHeading}>
-                    Sign a message by your bitcoin private key
+                    Safely sign JSON Web Tokens with your Private Key
                 </div>
                 <Signer />
                 <Metadata />

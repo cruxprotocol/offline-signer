@@ -86,7 +86,7 @@ class Signer extends Component {
                         </div>
                     </div>
                     <div className="mdc-select-helper-text mdc-select-helper-text--persistent">
-                        Please sign the message with your private key
+                        Both WIF or Hex format Private Keys are supported
                     </div>
                 </div>
 

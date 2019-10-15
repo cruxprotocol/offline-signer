@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "../../offline-signer/static/css/main.428feb1f.chunk.css",
-    "main.js": "../../offline-signer/static/js/main.c7ddd9d9.chunk.js",
-    "main.js.map": "../../offline-signer/static/js/main.c7ddd9d9.chunk.js.map",
+    "main.js": "../../offline-signer/static/js/main.c8f33485.chunk.js",
+    "main.js.map": "../../offline-signer/static/js/main.c8f33485.chunk.js.map",
     "runtime-main.js": "../../offline-signer/static/js/runtime-main.40058938.js",
     "runtime-main.js.map": "../../offline-signer/static/js/runtime-main.40058938.js.map",
     "static/js/2.c3340035.chunk.js": "../../offline-signer/static/js/2.c3340035.chunk.js",
     "static/js/2.c3340035.chunk.js.map": "../../offline-signer/static/js/2.c3340035.chunk.js.map",
     "index.html": "../../offline-signer/index.html",
-    "precache-manifest.ef752d63623efd30d19f1a642b9cd238.js": "../../offline-signer/precache-manifest.ef752d63623efd30d19f1a642b9cd238.js",
+    "precache-manifest.c05d5689a0a297340e2800b1f1a28b68.js": "../../offline-signer/precache-manifest.c05d5689a0a297340e2800b1f1a28b68.js",
     "service-worker.js": "../../offline-signer/service-worker.js",
     "static/css/main.428feb1f.chunk.css.map": "../../offline-signer/static/css/main.428feb1f.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.40058938.js",
     "static/js/2.c3340035.chunk.js",
     "static/css/main.428feb1f.chunk.css",
-    "static/js/main.c7ddd9d9.chunk.js"
+    "static/js/main.c8f33485.chunk.js"
   ]
 }

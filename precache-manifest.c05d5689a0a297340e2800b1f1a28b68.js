@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ad4afbb8890c2b137dd2879298e1dac7",
+    "revision": "0432c7856d872582a70c63086f6a2e2d",
     "url": "../../offline-signer/index.html"
   },
   {
-    "revision": "ed7669191fb22d7bb972",
+    "revision": "5acc295dfa44cb1f1551",
     "url": "../../offline-signer/static/css/main.428feb1f.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../../offline-signer/static/js/2.c3340035.chunk.js"
   },
   {
-    "revision": "ed7669191fb22d7bb972",
-    "url": "../../offline-signer/static/js/main.c7ddd9d9.chunk.js"
+    "revision": "5acc295dfa44cb1f1551",
+    "url": "../../offline-signer/static/js/main.c8f33485.chunk.js"
   },
   {
     "revision": "f2d0f39756e803789b25",

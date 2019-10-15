@@ -3,9 +3,9 @@ import styles from "./Metadata.module.scss";
 function Metadata() {
     return (
         <div className={styles.metadata}>
-            <div className={styles.question}>What is CruxPay Signer ?</div>
+            <div className={styles.question}>What is Message Signer ?</div>
             <div className={styles.answer}>
-                CruxPay Signer is a simple UI to safely sign JSON Web Tokens
+                Message Signer is a simple UI to safely sign JSON Web Tokens
                 (JWTs) with a Private Key
             </div>
             <div className={styles.question}>
@@ -16,7 +16,7 @@ function Metadata() {
                 elliptic curve) to sign he data.
             </div>
             <div className={styles.question}>
-                How is CruxPay signer secure? Can I run CruxPay signer Offline?
+                How is Message Signer secure? Can I run Message Signer Offline?
             </div>
             <div className={styles.answer}>
                 The signer code is open source and is run on Github itself. Feel

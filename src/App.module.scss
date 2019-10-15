@@ -48,3 +48,11 @@ code {
     @include font-normal(20px);
     text-align: center;
 }
+.Footer {
+    background-color: #333648;
+    width: 100%;
+    padding: 16px 32px;
+    text-align: center;
+    color: #ffffff;
+    @include font-normal(16px);
+}

@@ -34,8 +34,26 @@
         word-break: break-all;
         margin: 36px 0px;
         padding-bottom: 8px;
-        .mdc-button {
+        .copy-icon {
             float: right;
+            cursor: pointer;
+            &:hover {
+                opacity: 0.65;
+            }
         }
+    }
+    &__error-block {
+        width: 100%;
+        text-align: center;
+        background-color: #ee5253;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        @include font-bold(16px);
+    }
+    .copied-message {
+        float: right;
+        color: rgb(84, 51, 255);
+        @include font-normal(14px);
     }
 }

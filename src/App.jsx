@@ -22,6 +22,9 @@ function App() {
                 <Signer />
                 <Metadata />
             </div>
+            <div className={styles.Footer}>
+                Copyright © 2019 <strong>CruxPay</strong>®
+            </div>
         </div>
     );
 }

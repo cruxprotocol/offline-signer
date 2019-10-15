@@ -4,6 +4,7 @@ import { MDCTextField } from "@material/textfield";
 import { MDCSelectHelperText } from "@material/select/helper-text";
 import { MDCRipple } from "@material/ripple";
 import { TokenSigner } from "jsontokens";
+import CopyIcon from "../../copy-icon.png";
 
 class Signer extends Component {
     constructor(props) {
@@ -11,7 +12,9 @@ class Signer extends Component {
         this.state = {
             privateKey: "",
             message: "",
-            signature: ""
+            signature: "",
+            error: "",
+            isCopied: false
         };
     }
     componentDidMount() {
@@ -40,16 +43,37 @@ class Signer extends Component {
     };
 
     handleSign = () => {
-        let signature = new TokenSigner("ES256K", this.state.privateKey).sign(
-            JSON.parse(this.state.message)
-        );
-        this.setState({ signature: signature }, () => {
-            window.scroll({
-                top: 100,
-                left: 0,
-                behavior: "smooth"
+        if (this.state.privateKey && this.state.message) {
+            this.setState({
+                error: ""
             });
-        });
+            let message = "";
+            try {
+                message = JSON.parse(this.state.message);
+            } catch (err) {
+                message = this.state.message;
+            }
+            let signature = new TokenSigner(
+                "ES256K",
+                this.state.privateKey
+            ).sign(message);
+            this.setState({ signature: signature }, () => {
+                window.scroll({
+                    top: 100,
+                    left: 0,
+                    behavior: "smooth"
+                });
+            });
+        } else {
+            this.setState({
+                error: "Private Key and/or Message field(s) cannot be empty"
+            });
+            setTimeout(() => {
+                this.setState({
+                    error: ""
+                });
+            }, 3500);
+        }
     };
 
     handleCopy = str => {
@@ -59,11 +83,21 @@ class Signer extends Component {
         el.select();
         document.execCommand("copy");
         document.body.removeChild(el);
+        this.setState({ isCopied: true }, () => {
+            setTimeout(() => {
+                this.setState({ isCopied: false });
+            }, 2000);
+        });
     };
 
     render() {
         return (
             <form className="signer" autoComplete="off">
+                {this.state.error && (
+                    <div className="signer__error-block">
+                        {this.state.error}
+                    </div>
+                )}
                 <div className="signer__input">
                     <div className="mdc-text-field mdc-text-field--outlined">
                         <input
@@ -128,15 +162,25 @@ class Signer extends Component {
                     <div className="signature">
                         <div>{this.state.signature}</div>
                         <div>
-                            <button
-                                className="mdc-button"
-                                type="button"
-                                onClick={() =>
-                                    this.handleCopy(this.state.signature)
-                                }
-                            >
-                                Copy
-                            </button>
+                            {!this.state.isCopied && (
+                                <img
+                                    src={CopyIcon}
+                                    alt="CopyIcon"
+                                    width="20"
+                                    className="copy-icon"
+                                    onClick={() =>
+                                        this.handleCopy(this.state.signature)
+                                    }
+                                />
+                            )}
+                            {this.state.isCopied && (
+                                <span className="copied-message">
+                                    Copied{" "}
+                                    <span role="img" aria-label="copied">
+                                        👍🏾
+                                    </span>
+                                </span>
+                            )}
                         </div>
                     </div>
                 )}

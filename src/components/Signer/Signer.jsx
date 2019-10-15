@@ -40,10 +40,14 @@ class Signer extends Component {
         if (key.length === 64){
             this.setState({ privateKeyHex: key });
         }
+        else if (key.length === 66){
+            key = key.slice(0,-2);
+            this.setState({ privateKeyHex: key });
+        }
         else{
             let hexToWif = CoinKey.fromWif(key)
-            let wifkey = hexToWif.privateKey.toString('hex')
-            this.setState({ privateKeyHex: wifkey });
+            let hexkey = hexToWif.privateKey.toString('hex')
+            this.setState({ privateKeyHex: hexkey });
         }
     };
 

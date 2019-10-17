@@ -5,6 +5,7 @@ import { MDCSelectHelperText } from "@material/select/helper-text";
 import { MDCRipple } from "@material/ripple";
 import { TokenSigner } from "jsontokens";
 import CopyIcon from "../../copy-icon.png";
+var CoinKey = require('coinkey');
 
 class Signer extends Component {
     constructor(props) {
@@ -14,7 +15,8 @@ class Signer extends Component {
             message: "",
             signature: "",
             error: "",
-            isCopied: false
+            isCopied: false,
+            privateKeyHex: ""
         };
     }
     componentDidMount() {
@@ -36,6 +38,26 @@ class Signer extends Component {
 
     handlePkInput = event => {
         this.setState({ privateKey: event.target.value });
+        console.log("handlePkInput")
+        let key = String(event.target.value);
+        if (key.length === 64){
+            // console.log("looks like a hex key")
+            this.setState({ privateKeyHex: key });
+        }
+        else if (key.length === 66){
+            let slicedKey = key.slice(0,-2);
+            // console.log("looks like hex with 01")
+            this.setState({ privateKeyHex: slicedKey });
+        }
+        else if (key.length === 52){
+            // console.log("looks like WIF")
+            let hexToWif = CoinKey.fromWif(key)
+            let hexkey = hexToWif.privateKey.toString('hex')
+            // console.log(key + "-->" + hexkey)
+            this.setState({ privateKeyHex: hexkey });
+        } else {
+            // console.log("Doesn't look like a valid private key")
+        }
     };
 
     handleMessageInput = event => {
@@ -55,7 +77,7 @@ class Signer extends Component {
             }
             let signature = new TokenSigner(
                 "ES256K",
-                this.state.privateKey
+                this.state.privateKeyHex
             ).sign(message);
             this.setState({ signature: signature }, () => {
                 window.scroll({

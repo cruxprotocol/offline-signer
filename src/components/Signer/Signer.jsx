@@ -40,23 +40,24 @@ class Signer extends Component {
         this.setState({ privateKey: event.target.value });
         console.log("handlePkInput")
         let key = String(event.target.value);
+        let validKey = undefined;
+
         if (key.length === 64){
-            // console.log("looks like a hex key")
-            this.setState({ privateKeyHex: key });
+            validKey = key;
         }
         else if (key.length === 66){
-            let slicedKey = key.slice(0,-2);
-            // console.log("looks like hex with 01")
-            this.setState({ privateKeyHex: slicedKey });
+            validKey = key.slice(0,-2);
         }
         else if (key.length === 52){
-            // console.log("looks like WIF")
             let hexToWif = CoinKey.fromWif(key)
-            let hexkey = hexToWif.privateKey.toString('hex')
-            // console.log(key + "-->" + hexkey)
-            this.setState({ privateKeyHex: hexkey });
+            validKey = hexToWif.privateKey.toString('hex')
         } else {
-            // console.log("Doesn't look like a valid private key")
+            this.setState({error: 'Invalid Private Key'})
+        }
+
+        if(validKey) {
+            this.setState({error: ''});
+            this.setState({ privateKeyHex: validKey });
         }
     };
 

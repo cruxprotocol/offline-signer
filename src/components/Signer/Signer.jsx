@@ -175,7 +175,7 @@ class Signer extends Component {
                 <div className="signer__footer">
                     <button
                         className="mdc-button mdc-button--raised"
-                        type="button"
+                        type="button" disabled={this.state.error}
                         onClick={this.handleSign}
                     >
                         Sign Message

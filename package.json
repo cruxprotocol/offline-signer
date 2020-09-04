@@ -7,7 +7,7 @@
         "gh-pages": "2.1.1",
         "jsontokens": "2.0.2",
         "material-components-web": "3.2.0",
-        "node-sass": "4.12.0",
+        "node-sass": "4.13.1",
         "react": "16.10.2",
         "react-dom": "16.10.2",
         "react-github-corner": "2.3.0",
